@@ -1,0 +1,28 @@
+.cartEmpty {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     flex: 1;
+    .title {
+      margin: 10px;
+      font-weight: 600;
+      font-size: 22px;
+    }
+
+    .cartImg {
+      margin-bottom: 20px;
+    }
+  
+    .text {
+      margin: 0;
+      margin-bottom: 40px;
+      max-width: 290px;
+      text-align: center;
+      font-weight: 400;
+      font-size: 16px;
+      opacity: 0.4;
+      color: #000;
+    } 
+    
+  }

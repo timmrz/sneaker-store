@@ -1,0 +1,66 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 50px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #EAEAEA;
+
+    .logoBlock {
+        display: flex;
+        align-items: center;
+    }
+  
+    img {
+      margin-right: 15px;
+    }
+    
+  
+    .logoTitle,
+    .logoText {
+        margin: 0;
+    }
+    
+    .logoTitle {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 20px;
+    }
+    
+    .logoText {
+        opacity: 0.5;
+    }
+
+    .headerList {
+        display: flex;
+        align-items: center;
+        
+        .heart {
+          max-width: 22px;
+        }
+
+        .cart {
+            display: flex;
+            align-items: center;
+
+            svg {
+                margin-right: 10px;
+            }
+        }
+
+        li {
+            cursor: pointer;
+            transition: filter 200ms ease-in-out;
+
+    &:hover {
+      filter: brightness(85%)
+   
+    }
+        }
+
+        li:not(:last-child) {
+            margin-right: 30px;
+        }
+    }
+  }
+  
