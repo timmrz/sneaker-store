@@ -14,7 +14,7 @@ export default function Header(props) {
     <header className={styles.header}>
       <Link to='/'>
         <div className={styles.logoBlock}>
-          <img width={40} height={40} src='/img/logo.png' alt='#' />
+          <img width={40} height={40} src='img/logo.png' alt='#' />
           <div>
             <h3 className={styles.logoTitle}>Sneakers Store</h3>
             <p className={styles.logoText}>Shop the best sneakers</p>

@@ -112,9 +112,7 @@ export default function Drawer({ onClickClose, items = [], onRemove, opened }) {
                 : "Add at least one pair of sneakers to order."
             }
             image={
-              isOrderComplete
-                ? "/img/order-complete.jpg"
-                : "/img/cart-empty.jpg"
+              isOrderComplete ? "img/order-complete.jpg" : "img/cart-empty.jpg"
             }
           />
         )}
