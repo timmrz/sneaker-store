@@ -12,10 +12,10 @@ export default function Header(props) {
 
   return (
     <header className={styles.header}>
-      <Link to='/'>
+      <Link className={styles.logoLink} to='/'>
         <div className={styles.logoBlock}>
-          <img width={40} height={40} src='img/logo.png' alt='#' />
-          <div>
+          <img src='img/logo.png' alt='#' />
+          <div className={styles.logoInfo}>
             <h3 className={styles.logoTitle}>Sneakers Store</h3>
             <p className={styles.logoText}>Shop the best sneakers</p>
           </div>

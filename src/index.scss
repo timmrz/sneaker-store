@@ -1,7 +1,7 @@
-*{
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Inter',system-ui;
+  font-family: "Inter", system-ui;
   box-sizing: border-box;
   outline: none;
 }
@@ -24,66 +24,17 @@ body {
   background-color: #e7f6ff;
 }
 
-body.overlayVisible {
-overflow: hidden;
-}
-
 .wrapper {
   min-height: calc(100vh - 100px);
   margin: 50px auto;
   max-width: 1080px;
-  background: #FFF;
+  background: #fff;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
   border-radius: 20px;
 }
 
-
-.content {
-  padding: 0 60px;
-
-  h1 {
+@media (max-width: 640px) {
+  .wrapper {
     margin: 0;
   }
 }
-
-
-
-// 
-
-
-// .search-block{
-//   border: 1px solid #f3f3f3;
-//   border-radius: 10px;
-//   padding: 0 15px;
-
-
-//   input {
-//     width: 200px;
-//     border: 0;
-//     padding: 13px;
-//     font-size: 16px;
-//   }
-
-//   .buttonClear {
-//     margin-right: 1px;
-//     padding: 0;
-//     width: 32px;
-//     height: 32px;
-//     background: #FFFFFF;
-//     border-radius: 8px;
-//     opacity: 0.7;
-//     cursor: pointer;
-//     transition: opacity 0.2s ease-in-out;
-//     border: 1px solid #DBDBDB;
-//     svg {
-//       margin: auto auto;
-//     }
-    
-//     &:hover {
-//       opacity: 1;
-//     }
-//   }
-
-  
-// }
-

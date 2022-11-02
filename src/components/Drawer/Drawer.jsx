@@ -5,6 +5,7 @@ import axios from "axios";
 import ArrowIcon from "../icons/ArrowIcon";
 import ButtonDeleteIcon from "../icons/ButtonDeleteIcon";
 import styles from "./Drawer.module.scss";
+import CartItem from "../CartItem/CartItem";
 
 export default function Drawer({ onClickClose, items = [], onRemove, opened }) {
   const [isOrderComplete, setIsOrderComplete] = useState(false);
@@ -56,24 +57,7 @@ export default function Drawer({ onClickClose, items = [], onRemove, opened }) {
           <div className={styles.cartBlock}>
             <div className={styles.items}>
               {items.map((obj) => {
-                return (
-                  <div key={obj.id} className={styles.cartItem}>
-                    <img
-                      className={styles.itemImg}
-                      width={85}
-                      height={85}
-                      src={obj.imgUrl}
-                      alt='sneakers'
-                    />
-                    <div className={styles.itemPrice}>
-                      <p>{obj.title}</p>
-                      <b>{obj.price}$</b>
-                    </div>
-                    <button onClick={() => onRemove(obj)}>
-                      <ButtonDeleteIcon />
-                    </button>
-                  </div>
-                );
+                return <CartItem key={obj.id} obj={obj} onRemove={onRemove} />;
               })}
             </div>
             <div className={styles.cartTotalBlock}>

@@ -22,14 +22,20 @@ export default function Card({
   const [isFavorite, setIsFavorite] = useState(favorited);
   const { isItemAdded } = useContext(AppContext);
   const { isItemFavorite } = useContext(AppContext);
+  const [buttonAddLoading, setButtonAddLoading] = useState(false);
+  const [buttonFavLoading, setButtonFavLoading] = useState(false);
 
-  const onClickPlus = () => {
-    onPlus({ title, price, imgUrl, id, item_id });
+  const onClickPlus = async () => {
+    setButtonAddLoading(true);
+    await onPlus({ title, price, imgUrl, id, item_id });
+    setButtonAddLoading(false);
   };
 
-  const onClickFavorite = () => {
-    onFavorite({ id, title, price, imgUrl, item_id });
+  const onClickFavorite = async () => {
+    setButtonFavLoading(true);
+    await onFavorite({ id, title, price, imgUrl, item_id });
     setIsFavorite(!isFavorite);
+    setButtonFavLoading(false);
   };
 
   return (
@@ -54,7 +60,9 @@ export default function Card({
         <div className={styles.card}>
           {onFavorite && (
             <div onClick={onClickFavorite} className={styles.favorite}>
-              {isItemFavorite(item_id) ? (
+              {buttonFavLoading ? (
+                <div className={styles.spinner}></div>
+              ) : isItemFavorite(item_id) ? (
                 <LikedIcon />
               ) : (
                 <HeartIcon className={styles.heartIcon} />
@@ -76,7 +84,9 @@ export default function Card({
                 style={{
                   border: isItemAdded(item_id) ? "none" : "1px solid #BBBBBB",
                 }}>
-                {isItemAdded(item_id) ? (
+                {buttonAddLoading ? (
+                  <div className={styles.spinner}></div>
+                ) : isItemAdded(item_id) ? (
                   <ButtonCheckedIcon />
                 ) : (
                   <ButtonPlusIcon className={styles.plusIcon} />

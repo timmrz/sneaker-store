@@ -20,6 +20,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [orders, setOrders] = useState([]);
 
+
   useEffect(() => {
 
     async function fetchData() {
@@ -51,34 +52,28 @@ function App() {
 
   }, []);
 
-  useEffect(() => {
-
-    document.body.style.overflow = cartOpened ? 'hidden' : 'auto'
-
-  }, [cartOpened])
-
   const onAddToCart = async (obj) => {
     try {
-
       if (cartItems.find((item) => item.item_id === obj.item_id)) {
 
         const deletedItem = cartItems.find((item) => item.item_id === obj.item_id)
 
-        onRemoveItem(deletedItem)
+        await onRemoveItem(deletedItem)
       } else {
 
         const { data } = await axios.post("https://631e734422cefb1edc3501f0.mockapi.io/cart", obj)
 
         setCartItems((prev) => [...prev, data])
+
       }
     } catch {
       alert('Failed to add item to cart')
     }
   }
 
-  const onRemoveItem = (obj) => {
+  const onRemoveItem = async (obj) => {
     try {
-      axios.delete(`https://631e734422cefb1edc3501f0.mockapi.io/cart/${ obj.id }`)
+      await axios.delete(`https://631e734422cefb1edc3501f0.mockapi.io/cart/${ obj.id }`)
 
       setCartItems((prev) => prev.filter((item) => item.item_id !== obj.item_id))
 
@@ -94,7 +89,7 @@ function App() {
 
         const deletedItem = favoritesItems.find((favObj) => favObj.item_id === obj.item_id)
 
-        axios.delete(`https://631e734422cefb1edc3501f0.mockapi.io/favorites/${ deletedItem.id }`)
+        await axios.delete(`https://631e734422cefb1edc3501f0.mockapi.io/favorites/${ deletedItem.id }`)
 
         setFavoritesItems((prev) => prev.filter((item) => item.item_id !== deletedItem.item_id))
 
@@ -143,6 +138,7 @@ function App() {
                 onAddToFavorite={onAddToFavorite}
                 onAddToCart={onAddToCart}
                 isLoading={isLoading}
+
               />
             }>
           </Route>
